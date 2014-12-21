@@ -2,5 +2,4 @@
 <Classes>
 <annotation>true</annotation>>
 <class name="Employee">employee.xml</class>
-<class name="Student">student.xml</class>
 </Classes>
