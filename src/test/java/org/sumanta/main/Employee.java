@@ -1,12 +1,11 @@
 package org.sumanta.main;
 
 import org.sumanta.annotation.Embedded;
-import org.sumanta.annotation.Id;
 import org.sumanta.annotation.Property;
 
 public class Employee {
 
-	@Id
+	@Property
 	public int id;
 	@Property
 	public String firstName;
@@ -17,9 +16,9 @@ public class Employee {
 	@Embedded
 	@Property
 	public Address ad;
-	
+
 	public Employee() {
-		
+
 	}
 
 	public Employee(int id, String firstName, String lastName, int salary) {
@@ -70,5 +69,4 @@ public class Employee {
 		this.ad = ad;
 	}
 
-	
 }

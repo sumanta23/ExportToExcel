@@ -21,8 +21,8 @@ public class MainTest {
 				e.setFirstName("name" + i);
 				e.setLastName("lastname" + i);
 				e.setSalary(i);
-				Address ad=new Address();
-				ad.setStreet("name"+i);
+				Address ad = new Address();
+				ad.setStreet("name" + i);
 				ad.setPin(i);
 				e.setAd(ad);
 				al.add(e);
