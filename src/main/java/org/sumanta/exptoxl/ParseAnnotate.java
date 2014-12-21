@@ -50,7 +50,16 @@ public class ParseAnnotate {
 			Property annos = field.getAnnotation(Property.class);
 			if (annos != null) {
 				try {
-					attrList.add(fieldname + "." + field.getName());
+					Embedded em = field.getAnnotation(Embedded.class);
+					if (em != null) {
+						Class<?> clazz = field.getType();
+						String pkg = clazz.getName();
+						Class c = Class.forName(pkg);
+						Object obj = c.newInstance();
+						perseEmbeddeded(obj, fieldname+"."+field.getName());
+					} else {
+						attrList.add(fieldname + "." + field.getName());
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,7 +71,8 @@ public class ParseAnnotate {
 	public static String getMethodAt(int i) {
 		String s = (String) attrList.get(i);
 		if (s.contains(".")) {
-			s = s.split("\\.")[1];
+			int l=s.split("\\.").length;
+			s = s.split("\\.")[l-1];
 		}
 		return ParseAnnotate.getGetter(s);
 	}

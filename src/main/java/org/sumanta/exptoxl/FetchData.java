@@ -11,11 +11,16 @@ public class FetchData {
 		Object obj = thisClass.cast(al.get(arraylistIndex));
 		String d = ParseAnnotate.attrList.get(methodIndex);
 		if (d.contains(".")) {
-			String s = d.split("\\.")[0];
-			s = "get" + s.substring(0, 1).toUpperCase() + s.substring(1);
-			Method m = thisClass.getMethod(s);
-			obj = m.invoke(obj);
-			thisClass = obj.getClass();
+			int size=d.split("\\.").length;
+			int count=0;
+			while(count<size-1){
+				String s = d.split("\\.")[count];
+				s = "get" + s.substring(0, 1).toUpperCase() + s.substring(1);
+				Method m = thisClass.getMethod(s);
+				obj = m.invoke(obj);
+				thisClass = obj.getClass();
+				count++;
+			}
 		}
 
 		Method m = thisClass.getMethod(ParseAnnotate.getMethodAt(methodIndex));

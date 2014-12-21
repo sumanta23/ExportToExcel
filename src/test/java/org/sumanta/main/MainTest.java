@@ -22,7 +22,9 @@ public class MainTest {
 				e.setLastName("lastname" + i);
 				e.setSalary(i);
 				Address ad = new Address();
-				ad.setStreet("name" + i);
+				Street st=new Street();
+				st.setSt("gui");
+				ad.setStreet(st);
 				ad.setPin(i);
 				e.setAd(ad);
 				al.add(e);
