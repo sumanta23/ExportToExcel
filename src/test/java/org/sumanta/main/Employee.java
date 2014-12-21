@@ -1,11 +1,10 @@
 package org.sumanta.main;
 
-import org.sumanta.annotation.Id;
 import org.sumanta.annotation.Property;
 
 public class Employee {
 
-@Id	
+@Property
 public int id;
 @Property
 public String firstName;

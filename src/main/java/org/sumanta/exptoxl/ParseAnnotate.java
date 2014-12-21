@@ -15,30 +15,10 @@ public class ParseAnnotate {
 		String pkg=className.getClass().getName();
 		Class c=Class.forName(pkg);
 		Object obj=c.newInstance();
-		parseID(obj);
 		parseProperty(obj);
 		return attrList;
 	}
 	
-	public static void parseID(Object runner)
-	{
-		System.out.println("rrr");
-		//TheClass runner = new TheClass();
-        Field[] fields = runner.getClass().getFields();
-        System.out.println(fields.length);
-        for (Field	field: fields) {
-        	Id annos = field.getAnnotation(Id.class);
-            if (annos != null) {
-                try {
-                	System.out.println(field.getName());
-                	attrList.add(field.getName());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-	}
 
 	public static void  parseProperty(Object runner)
 	{
