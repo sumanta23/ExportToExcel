@@ -31,7 +31,7 @@ public class MainTest {
 			}
 			ExportExcel ee = new ExportExcel();
 			Object o = al.get(0);
-			ee.exportToExcel(al, "Employee", System.getProperty("user.home"), o);
+			ee.exportToExcel(al, "Employee", "./target", o);
 			assertTrue(true);
 		} catch (Exception e) {
 			e.getMessage();
