@@ -13,14 +13,23 @@ public class ExportExcel {
 	public static String className;
 	public static String pathToStrore;
 
-	public void exportToExcel(ArrayList al, String ClassName,
+
+    /**
+     * Method implementation for exporting data to xml
+     * @param al
+     * @param ClassName
+     * @param pathToStore
+     * @param o
+     * @throws Exception
+     */
+	public void exportToExcel(String configFilePath, ArrayList al, String ClassName,
 			String pathToStore, java.lang.Object o) throws Exception {
 
 		ExportExcel.al = al;
 		ExportExcel.className = ClassName;
 		ExportExcel.pathToStrore = pathToStore;
 
-		ParseConfigFile p = new ParseConfigFile();
+		ParseConfigFile p = new ParseConfigFile(configFilePath);
 
 		if (p.isAnnotated()) {
 			Class c = Class.forName(o.getClass().getName());

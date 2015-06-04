@@ -2,6 +2,7 @@ package org.sumanta.main;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.junit.Test;
@@ -31,7 +32,7 @@ public class MainTest {
 			}
 			ExportExcel ee = new ExportExcel();
 			Object o = al.get(0);
-			ee.exportToExcel(al, "Employee", "./target", o);
+			ee.exportToExcel(this.getClass().getClassLoader().getResource("exportexcel.xml").getPath().toString(),al, "Employee", "./target", o);
 			assertTrue(true);
 		} catch (Exception e) {
 			e.getMessage();

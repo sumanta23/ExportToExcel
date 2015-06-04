@@ -14,11 +14,11 @@ public class ParseConfigFile {
 	NodeList nList;
 	NodeList cList;
 
-	public ParseConfigFile() {
+	public ParseConfigFile(String configFilePath) {
 
 		try {
-			File fXmlFile = new File(
-					new File("exportexcel.xml").getAbsolutePath());
+			File fXmlFile = new File(configFilePath);
+
 			// File fXmlFile = new
 			// File(System.getProperty("user.dir")+"exportexcel.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
